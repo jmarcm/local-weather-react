@@ -3,6 +3,17 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
+function CityCard(props) {
+  return (
+    <div>
+      <div id="city-name">{props.cityName}</div>
+      <div id="temperature">{props.temperature}</div>
+      <div id="weather">{props.weatherDescription}</div>
+      <img src={props.weatherIcone} alt={props.weatherAlt} />
+    </div>
+  );
+}
+
 function App() {
   // const cityID = "2660717"; // Canton de Fribourg
   // const cityID = "6690660"; // Fort de France
@@ -41,7 +52,6 @@ function App() {
 
   const cityName = `${response.name}, ${response.sys.country}`;
 
-  // Températures
   const temperature = `${response.main.temp} ${units[temperatureCode].abbr}`;
 
   const weather = response.weather[0];
@@ -51,12 +61,13 @@ function App() {
   const weatherAlt = weather.description;
 
   return (
-    <div>
-      <div id="city-name">{cityName}</div>
-      <div id="temperature">{temperature}</div>
-      <div id="weather">{weatherDescription}</div>
-      <img src={weatherIcone} alt={weatherAlt} />
-    </div>
+    <CityCard
+      cityName={cityName}
+      temperature={temperature}
+      weatherDescription={weatherDescription}
+      weatherIcone={weatherIcone}
+      weatherAlt={weatherAlt}
+    />
   );
 }
 
