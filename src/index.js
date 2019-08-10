@@ -4,10 +4,13 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 
 function App() {
+  const cities = ["2660717", "6690660", "2643741", "6455273"];
+
   return (
     <div className="App">
-      <CityCard cityID="6455273" />
-      <CityCard cityID="2643741" />
+      {cities.map((city, index) => (
+        <CityCard key={index} cityID={city} />
+      ))}
     </div>
   );
 }
