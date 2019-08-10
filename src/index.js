@@ -3,22 +3,23 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
-function CityCard(props) {
+function App() {
   return (
-    <div className="city-card">
-      <div id="city-name">{props.cityName}</div>
-      <div id="temperature">{props.temperature}</div>
-      <div id="weather">{props.weatherDescription}</div>
-      <img src={props.weatherIcone} alt={props.weatherAlt} />
+    <div className="App">
+      <CityCard cityID="6455273" />
+      <CityCard cityID="2643741" />
     </div>
   );
 }
 
-function App() {
+function CityCard({ cityID }) {
   // const cityID = "2660717"; // Canton de Fribourg
   // const cityID = "6690660"; // Fort de France
   // const cityID = "2643741"; // London
-  const cityID = "6455273"; // Amiens
+  //const cityID = "6455273"; // Amiens
+
+  //const cityID = props.cityID;
+
   const apiKey = process.env.WEATHER_API_KEY;
 
   const units = {
@@ -61,13 +62,12 @@ function App() {
   const weatherAlt = weather.description;
 
   return (
-    <CityCard
-      cityName={cityName}
-      temperature={temperature}
-      weatherDescription={weatherDescription}
-      weatherIcone={weatherIcone}
-      weatherAlt={weatherAlt}
-    />
+    <div className="city-card">
+      <div id="city-name">{cityName}</div>
+      <div id="temperature">{temperature}</div>
+      <div id="weather">{weatherDescription}</div>
+      <img src={weatherIcone} alt={weatherAlt} />
+    </div>
   );
 }
 
