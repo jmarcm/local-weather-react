@@ -5,7 +5,7 @@ import "./styles.css";
 
 function CityCard(props) {
   return (
-    <div>
+    <div className="city-card">
       <div id="city-name">{props.cityName}</div>
       <div id="temperature">{props.temperature}</div>
       <div id="weather">{props.weatherDescription}</div>
@@ -19,7 +19,7 @@ function App() {
   // const cityID = "6690660"; // Fort de France
   // const cityID = "2643741"; // London
   const cityID = "6455273"; // Amiens
-  const apiKey = "ea8f83de16f4055af09a920d88e05ccd";
+  const apiKey = process.env.WEATHER_API_KEY;
 
   const units = {
     celsius: {
