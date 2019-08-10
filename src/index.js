@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
-function App() {
-  const cities = ["2660717", "6690660", "2643741", "6455273"];
+import cities from "./cities";
 
+function App() {
   return (
     <div className="App">
       {cities.map((city, index) => (
@@ -16,13 +16,6 @@ function App() {
 }
 
 function CityCard({ cityID }) {
-  // const cityID = "2660717"; // Canton de Fribourg
-  // const cityID = "6690660"; // Fort de France
-  // const cityID = "2643741"; // London
-  //const cityID = "6455273"; // Amiens
-
-  //const cityID = props.cityID;
-
   const apiKey = process.env.WEATHER_API_KEY;
 
   const units = {
